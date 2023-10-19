@@ -1,4 +1,5 @@
-import 'package:app_bitcoin/views/bitcoin.dart';
+
+import 'package:app_bitcoin/bitcoin.dart';
 import 'package:flutter/material.dart';
 
 void main() {

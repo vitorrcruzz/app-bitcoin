@@ -1,4 +1,10 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
+
+
 
 class Bitcoin extends StatefulWidget {
   const Bitcoin({super.key});
@@ -8,6 +14,16 @@ class Bitcoin extends StatefulWidget {
 }
 
 class _BitcoinState extends State<Bitcoin> {
+   String _preco ="0";
+  void _recuperarPreco() async{
+
+  var url =Uri.parse("https://blockchain.info/ticker");
+  http.Response response = await http.get(url);
+  Map<String, dynamic> retorno = json.decode(response.body);
+  setState ((){
+    _preco = retorno["BRL"]["buy"].toString();
+  });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +33,13 @@ class _BitcoinState extends State<Bitcoin> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:<Widget> [
-            Image.asset("images/bitcoin.png"),
+            Image.asset("imagens/bitcoin.png"),
             SizedBox(height: 20,),
-            Text("R\$ " + "0", style: TextStyle(fontSize: 35),),
+            Text("R\$ $_preco", style: TextStyle(fontSize: 35),),
             
-            SizedBox(height: 10,),
+            SizedBox(height: 30,),
 
-            TextButton(onPressed: (){}, 
+            TextButton(onPressed: (){_recuperarPreco();}, 
             style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.orange)),
             child: const Text("Atualizar", style: TextStyle(fontSize: 20, color:Colors.white),))
           ],
