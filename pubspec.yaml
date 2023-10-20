@@ -60,9 +60,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-assets: 
- - imagens/bitcoin.png
-
+  assets: 
+    - imagens/bitcoin.png
+ #- imagens/bitcoin-icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

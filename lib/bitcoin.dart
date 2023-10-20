@@ -34,10 +34,10 @@ class _BitcoinState extends State<Bitcoin> {
           mainAxisAlignment: MainAxisAlignment.center,
           children:<Widget> [
             Image.asset("imagens/bitcoin.png"),
-            SizedBox(height: 20,),
+            const SizedBox(height: 20,),
             Text("R\$ $_preco", style: TextStyle(fontSize: 35),),
             
-            SizedBox(height: 30,),
+            const SizedBox(height: 30,),
 
             TextButton(onPressed: (){_recuperarPreco();}, 
             style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.orange)),
